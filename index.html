@@ -20,6 +20,7 @@
     --container: 960px;
     --radius-pill: 100px;
     --radius-md: 16px;
+    --success: #34C759;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,7 +35,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ---------- ШАПКА ---------- */
+  /* ШАПКА */
   .header {
     position: sticky;
     top: 0;
@@ -117,15 +118,56 @@
     outline: none;
   }
 
-  /* ---------- БЛОК С ГЛАЗАМИ ---------- */
+  /* ТИТУЛЬНЫЙ ЛИСТ */
+  .title-page {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .title-page__content { max-width: 700px; }
+
+  .title-page h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+  }
+
+  .title-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+  }
+
+  .title-meta span {
+    color: var(--text-muted);
+    font-size: 16px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ГЛАЗА */
   .stage {
-    min-height: 50vh; 
+    min-height: 30vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 24px;
-    padding: 60px 20px;
+    padding: 40px 20px;
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
 
   .eyes { display: flex; gap: 40px; }
@@ -135,10 +177,10 @@
     height: 120px;
     background: #fff;
     border-radius: 50%;
-    border: 3px solid #111;
+    border: 4px solid #222;
     position: relative;
     overflow: hidden;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.5);
     transition: transform 0.1s;
   }
   .eye.blink { transform: scaleY(0.1); }
@@ -146,7 +188,7 @@
   .pupil {
     width: 50px;
     height: 50px;
-    background: #111;
+    background: #000;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -157,16 +199,17 @@
   }
 
   .eyes-caption {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text-muted);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
     text-align: center;
-    margin-top: 16px;
   }
+  .eyes-caption span { color: var(--accent-light); }
 
-  /* ---------- ОБЩИЕ СТИЛИ ДЛЯ СЕКЦИЙ ---------- */
+  /* СЕКЦИИ */
   .section {
-    padding: 80px 20px;
+    padding: 40px 20px;
+    page-break-inside: avoid;
   }
   
   .container {
@@ -175,35 +218,34 @@
   }
 
   .section-title {
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.03em;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .intro-text {
     max-width: 760px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 48px;
+    gap: 12px;
+    margin-bottom: 24px;
   }
 
   .intro-text p {
     font-size: 16px;
     line-height: 1.5;
     color: var(--text-gray);
-    font-weight: 400;
   }
 
-  /* Картинки */
   .image-wrap {
     width: 100%;
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     background: #1a1a1a;
+    page-break-inside: avoid;
   }
 
   .image-wrap img {
@@ -213,24 +255,20 @@
     object-fit: cover;
   }
 
-  /* ---------- БЛОК СТАТИСТИКИ ---------- */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 32px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 40px;
-    margin-bottom: 60px;
+    padding-top: 32px;
+    margin-bottom: 40px;
+    page-break-inside: avoid;
   }
 
-  .stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+  .stat-item { display: flex; flex-direction: column; gap: 12px; }
 
   .stat-number {
-    font-size: 80px;
+    font-size: 64px;
     font-weight: 800;
     line-height: 0.9;
     color: var(--text);
@@ -240,102 +278,94 @@
     gap: 12px;
   }
 
-  .stat-unit {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 0;
-  }
+  .stat-unit { font-size: 20px; font-weight: 600; color: var(--text-muted); }
 
-  .stat-desc {
-    font-size: 15px;
-    line-height: 1.4;
-    color: var(--text-muted);
-  }
+  .stat-desc { font-size: 14px; line-height: 1.4; color: var(--text-muted); }
 
-  /* ---------- ТЕКСТОВЫЙ БЛОК ---------- */
+  .stat-desc a { color: var(--text-muted); text-decoration: none; }
+
   .text-content {
     max-width: 760px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
   }
 
   .text-content p {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.5;
     color: rgba(255, 255, 255, 0.8);
   }
 
   .text-content strong { color: var(--text); font-weight: 600; }
 
   .text-content .lead {
-    font-size: 22px;
-    line-height: 1.5;
+    font-size: 20px;
+    line-height: 1.4;
     color: var(--text);
     font-weight: 500;
   }
 
-  /* ---------- СЕТКА С КАРТИНКОЙ ---------- */
+  .footnote-ref {
+    font-size: 12px;
+    vertical-align: super;
+    color: var(--accent-light);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
   .split-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    gap: 32px;
     align-items: start;
+    page-break-inside: avoid;
   }
 
-  .split-image {
-    position: sticky;
-    top: 100px;
-  }
+  .split-image { position: sticky; top: 100px; }
 
-  .split-image .image-wrap {
-    margin-bottom: 0;
-  }
+  .split-image .image-wrap { margin-bottom: 0; }
 
-  /* Плашка с примерами */
   .example-box {
     background: #111111;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-md);
-    padding: 24px;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    padding: 16px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
   }
 
-  .example-box p {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.9);
-  }
+  .example-box p { font-size: 15px; color: rgba(255, 255, 255, 0.9); }
 
   .example-label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-muted);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .example-note {
-    font-size: 14px !important;
+    font-size: 13px !important;
     color: var(--text-gray) !important;
     font-style: italic;
-    margin-top: 12px;
+    margin-top: 8px;
   }
 
   .custom-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 12px;
+    gap: 8px;
+    margin-top: 8px;
   }
 
   .custom-list li {
     position: relative;
-    padding-left: 24px;
-    font-size: 16px;
+    padding-left: 20px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.9);
   }
 
@@ -345,142 +375,228 @@
     left: 0;
     color: var(--text);
     font-weight: bold;
-    font-size: 20px;
-    line-height: 1;
+    font-size: 18px;
   }
 
-  /* Карточка "Как защититься" */
   .protection-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     border-radius: var(--radius-md);
-    padding: 24px;
-    margin-top: 16px;
+    padding: 16px;
+    margin-top: 12px;
+    page-break-inside: avoid;
   }
 
   .protection-title {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  .protection-title::before {
-    content: "🛡️";
-    font-size: 16px;
-  }
-
   .protection-card p {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.4;
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   
   .protection-card p:last-child { margin-bottom: 0; }
 
-  /* ---------- ИСТОРИЯ (МИНИ-БЛОК) ---------- */
   .story-block {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    border-left: 4px solid rgba(255, 255, 255, 0.3);
-    padding-left: 24px;
-    margin-top: 16px;
+    gap: 16px;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    padding-left: 16px;
+    margin-top: 12px;
+    page-break-inside: avoid;
   }
 
   .story-block h4 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   .story-block p {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.4;
     color: rgba(255, 255, 255, 0.8);
   }
 
-  /* ---------- КРАСИВЫЙ БЛОК ИТОГА ---------- */
   .outro-section {
-    padding: 100px 20px;
-    background: radial-gradient(circle at top center, #1a1a1a 0%, #000000 70%);
-    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 40px 20px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    page-break-inside: avoid;
   }
-  
-  .outro-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+
+  .receipt-card {
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-md);
-    padding: 64px 40px;
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 560px;
+    position: relative;
+  }
+
+  .receipt-header {
+    padding: 24px 24px 16px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
   }
-  
-  .outro-card h2 {
-    font-size: 42px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 32px;
+
+  .receipt-icon-svg {
+    width: 36px;
+    height: 36px;
+    color: var(--success);
+    margin: 0 auto 12px;
+    display: block;
   }
-  
-  .outro-lead {
-    font-size: 24px;
+
+  .receipt-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .receipt-status {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--success);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .receipt-body { padding: 20px 24px; }
+
+  .receipt-intro {
+    font-size: 15px;
     line-height: 1.4;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 24px;
-  }
-  
-  .outro-card p {
-    font-size: 18px;
-    line-height: 1.6;
     color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
-  .outro-highlight {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 16px 32px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: var(--radius-md);
-    font-size: 18px;
+  .receipt-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .receipt-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .receipt-list .check-icon {
+    color: var(--success);
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+  }
+
+  .receipt-list strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .receipt-list p {
+    font-size: 14px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .receipt-footer {
+    padding: 16px 24px 24px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .receipt-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
     font-weight: 500;
     color: var(--text);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 12px;
   }
 
-  /* ---------- ФИНАЛЬНЫЙ ЧЕРНЫЙ БЛОК (СПАСИБО И КОНТАКТЫ) ---------- */
+  .receipt-total strong {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--success);
+  }
+
+  .receipt-note {
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    font-style: italic;
+  }
+
+  .sources-section {
+    padding: 40px 20px;
+    background: #050505;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    page-break-inside: avoid;
+  }
+  .sources-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .sources-list li {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+  .sources-list a {
+    color: var(--accent-light);
+    text-decoration: none;
+    word-break: break-all;
+  }
+
   .footer-section {
     background-color: #000000;
-    padding: 100px 20px 80px;
+    padding: 40px 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center;
+    page-break-inside: avoid;
   }
 
   .footer-thanks {
-    font-size: 72px;
+    font-size: 48px;
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.03em;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     color: var(--text);
   }
 
   .footer-smile {
-    font-size: 64px;
+    font-size: 48px;
     line-height: 1;
-    margin-bottom: 80px;
+    margin-bottom: 32px;
     display: block;
   }
 
@@ -492,108 +608,84 @@
 
   .footer-email {
     display: block;
-    font-size: 42px;
+    font-size: 28px;
     font-weight: 600;
     color: var(--text);
     text-decoration: none;
-    letter-spacing: -0.02em;
-    padding-bottom: 24px;
+    padding-bottom: 16px;
     border-bottom: 1px solid rgba(255,255,255,0.15);
-    margin-bottom: 24px;
-    transition: opacity 0.2s;
-  }
-
-  .footer-email:hover {
-    opacity: 0.7;
+    margin-bottom: 16px;
   }
 
   .contact-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
+    padding: 12px 0;
     border-bottom: 1px solid rgba(255,255,255,0.15);
-    font-size: 15px;
+    font-size: 14px;
   }
 
-  .contact-label {
-    color: var(--text-muted);
-  }
+  .contact-label { color: var(--text-muted); }
+  .contact-value { color: var(--text); text-decoration: none; font-weight: 500; }
 
-  .contact-value {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .contact-value:hover {
-    text-decoration: underline;
-  }
-
-  /* ---------- АДАПТИВ ---------- */
   @media (max-width: 810px) {
     .header__inner { padding: 0 16px; }
     .logo { font-size: 14px; gap: 8px; }
     .logo__icon { width: 20px; height: 24px; }
-    
     .nav { position: static; transform: none; gap: 4px; }
     .nav__link { padding: 8px 12px; font-size: 13px; }
-    
-    .eyes { gap: 24px; }
-    .eye { width: 88px; height: 88px; }
-    .pupil { width: 38px; height: 38px; }
+    .title-page { min-height: auto; padding: 40px 16px; }
+    .title-page h1 { font-size: 28px; margin-bottom: 24px; }
+    .title-meta { font-size: 16px; margin-bottom: 24px; }
+    .stage { min-height: 20vh; padding: 24px 16px; gap: 16px; }
+    .eyes { gap: 16px; }
+    .eye { width: 80px; height: 80px; }
+    .pupil { width: 30px; height: 30px; }
     .eyes-caption { font-size: 14px; }
-    
-    .section { padding: 48px 16px; }
-    .section-title { font-size: 28px; margin-bottom: 16px; }
-    .intro-text { margin-bottom: 32px; }
-    .intro-text p { font-size: 15px; }
-    
-    .image-wrap { margin-bottom: 24px; border-radius: 10px; }
-    
-    .stats-grid {
-      grid-template-columns: 1fr;
-      gap: 32px;
-      margin-bottom: 48px;
-    }
-    .stat-number { font-size: 56px; }
-    .stat-unit { font-size: 18px; }
-    
-    .text-content p { font-size: 16px; }
-    .text-content .lead { font-size: 20px; }
-    
-    .split-layout {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    
-    .split-image {
-      position: static;
-      order: -1; 
-    }
+    .section { padding: 24px 16px; }
+    .section-title { font-size: 24px; margin-bottom: 12px; }
+    .intro-text { margin-bottom: 16px; }
+    .intro-text p { font-size: 14px; }
+    .image-wrap { margin-bottom: 16px; border-radius: 8px; }
+    .stats-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 24px; }
+    .stat-number { font-size: 48px; }
+    .stat-unit { font-size: 16px; }
+    .text-content p { font-size: 15px; }
+    .text-content .lead { font-size: 18px; }
+    .split-layout { grid-template-columns: 1fr; gap: 16px; }
+    .split-image { position: static; order: -1; }
+    .protection-card, .example-box { padding: 12px; }
+    .story-block { padding-left: 12px; }
+    .outro-section { padding: 24px 16px; }
+    .receipt-header, .receipt-body, .receipt-footer { padding: 16px; }
+    .receipt-title { font-size: 18px; }
+    .receipt-total { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .sources-section { padding: 24px 16px; }
+    .footer-section { padding: 24px 16px; }
+    .footer-thanks { font-size: 32px; margin-bottom: 8px; }
+    .footer-smile { font-size: 32px; margin-bottom: 24px; }
+    .footer-email { font-size: 20px; padding-bottom: 12px; margin-bottom: 12px; word-break: break-all; }
+    .contact-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 8px 0; }
+  }
 
-    .protection-card { padding: 20px; }
-    .story-block { padding-left: 16px; }
-
-    /* Адаптив для итога и финала */
-    .outro-section { padding: 60px 16px; }
-    .outro-card { padding: 40px 20px; }
-    .outro-card h2 { font-size: 32px; margin-bottom: 24px; }
-    .outro-lead { font-size: 20px; }
-    .outro-card p { font-size: 16px; }
-    .outro-highlight { padding: 12px 20px; font-size: 16px; }
-
-    .footer-section { padding: 60px 16px; }
-    .footer-thanks { font-size: 40px; margin-bottom: 16px; }
-    .footer-smile { font-size: 48px; margin-bottom: 48px; }
-    .footer-email { font-size: 24px; padding-bottom: 16px; margin-bottom: 16px; word-break: break-all; }
-    .contact-row { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px 0; }
+  @media print {
+    @page { margin: 15mm; }
+    body { background: #000 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .header, .nav, .stage { display: none; }
+    .title-page { min-height: 100vh; page-break-after: always; border: none; }
+    .section, .outro-section, .sources-section, .footer-section { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .split-layout { display: flex; flex-direction: row; gap: 15px; }
+    .split-image { position: static; width: 45%; }
+    .split-image .image-wrap { margin-bottom: 0; }
+    .text-content { width: 55%; }
+    .image-wrap img { max-height: 250px; object-fit: contain; }
+    .stats-grid { display: flex; justify-content: space-between; }
   }
 </style>
 </head>
 <body>
 
-  <!-- ШАПКА -->
   <header class="header">
     <div class="header__inner">
       <a href="#top" class="logo">
@@ -604,6 +696,7 @@
       </a>
       <nav class="nav">
         <a href="#top" class="nav__link">В начало</a>
+        <a href="#sources" class="nav__link">Источники</a>
         <a href="#contacts" class="nav__link">Контакты</a>
       </nav>
     </div>
@@ -611,109 +704,104 @@
 
   <div id="top"></div>
 
-  <!-- ГЛАЗА -->
+  <section class="title-page">
+    <div class="title-page__content">
+      <h1>Психология мошенничества: механизмы манипуляции и поведенческие уязвимости</h1>
+      <div class="title-meta">
+        <div><span>ФИО участника:</span>Петухова Светлана Юрьевна</div>
+        <div><span>Место работы/учебы:</span>Самозанятая</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Введение</h2>
+      <div class="text-content">
+        <p class="lead">Тема психологии финансового мошенничества выбрана не случайно.</p>
+        <p>Ежегодно миллионы людей теряют сбережения, и жертвами становятся отнюдь не только доверчивые пенсионеры. В зоне риска — люди с высшим образованием, предприниматели и специалисты, привыкшие анализировать информацию.</p>
+        <p>Актуальность темы обусловлена тем, что современные мошенники перестали быть «анонимами из подвала». Они превратились в тонких психологов, использующих научно обоснованные методы социальной инженерии.</p>
+        <p><strong>Цель лонгрида</strong> — разобрать ключевые психологические приемы, которые используют финансовые мошенники, и показать на реальных примерах, как работают эти уязвимости.</p>
+      </div>
+    </div>
+  </section>
+
   <main class="stage">
     <div class="eyes" id="eyes">
       <div class="eye"><div class="pupil"></div></div>
       <div class="eye"><div class="pupil"></div></div>
     </div>
-    <p class="eyes-caption">Смотри в оба! Они уже наблюдают за тобой...</p>
+    <p class="eyes-caption">Смотри в оба! <span>Они наблюдают за тобой...</span></p>
   </main>
 
-  <!-- БЛОК 1: СТАТИСТИКА -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Почему люди попадаются на уловки мошенников?</h2>
-      
       <div class="intro-text">
-        <p>Это не истории про «наивных бабушек у подъезда». Жертвами мошенников становятся различные люди, потому что мошенники играют на психологии. За каждым действием мошенника стоит отработанный прием — иногда один, иногда целая комбинация.</p>
-    <p>В этом лонгриде мы разберем 4 конкретных приема, которые блокируют критическое мышление и опустошают счета.</p>
+        <p>Это не истории про «наивных бабушек у подъезда». Жертвами становятся врачи, люди с высшим образованием и хорошими доходами.</p>
+        <p>Почему? Потому что мошенники играют не на интеллекте — они играют на психологии. За каждым решением стоит отработанный прием — иногда один, иногда комбинация.</p>
+        <p>Мошенники используют одни и те же психологические механизмы. Они изучены, описаны и работают безотказно, если вы о них не знаете.</p>
       </div>
-
-      <div class="image-wrap">
-        <img src="hero.jpeg" alt="Люди работают за ноутбуками">
-      </div>
-
+      <div class="image-wrap"><img src="hero.jpeg" alt="Люди работают за ноутбуками"></div>
       <div class="stats-grid">
         <div class="stat-item">
           <div class="stat-number">67%</div>
-          <p class="stat-desc"> россиян по данным опроса ВЦИОМ и статистики Банка России хотя бы раз сталкивались с попыткой телефонного мошенничества.</p>
+          <p class="stat-desc">по данным опроса ВЦИОМ и статистике Банка России столько россиян хотя бы раз сталкивались с попыткой телефонного мошенничества<a href="#source1" class="footnote-ref">*</a>.</p>
         </div>
         <div class="stat-item">
           <div class="stat-number">12–13%</div>
-          <p class="stat-desc">процент раскрываемости таких преступлений.</p>
+          <p class="stat-desc">процент раскрываемости таких преступлений<a href="#source3" class="footnote-ref">***</a>.</p>
         </div>
         <div class="stat-item">
           <div class="stat-number">29,3 <span class="stat-unit">млрд ₽</span></div>
           <p class="stat-desc">объем украденных средств по итогам 2025 года.</p>
         </div>
       </div>
-
-      <div class="image-wrap">
-        <img src="hero2.jpeg" alt="Психология мошенничества">
-      </div>
-<div class="intro-text">
-<p>Со стороны кажется, что они просто работают. Но, возможно, прямо сейчас один из них отправляет деньги "службе безопасности банка", а другой готовится их получить.
+      <div class="image-wrap"><img src="hero2.jpeg" alt="Психология мошенничества"></div>
     </div>
   </section>
-
-  <!-- БЛОК 2: ЗАГОЛОВОК К ПРИЕМАМ -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Психологические приёмы мошенников</h2>
-      
       <div class="text-content">
         <p class="lead">Мошенники — мастера создавать отражения.</p>
-        <p>Они знают: если показать вам то, чего вы хотите увидеть (спокойствие, выгоду, любовь), <strong>вы сами закроете глаза на реальность</strong>. И делают они это через конкретные приёмы. Разберём их по одному.</p>
+        <p>Они знают: если показать вам то, чего вы хотите увидеть (спокойствие, выгоду, любовь), <strong>вы сами закроете глаза на реальность</strong>. И делают они это через конкретные приёмы. Разберём их по одному<a href="#source4" class="footnote-ref">****</a>.</p>
       </div>
     </div>
   </section>
 
-  <!-- БЛОК 3: ПРИЁМ 1 - ФРЕЙМИНГ -->
+  <!-- ПРИЕМ 1 -->
   <section class="section">
     <div class="container">
       <div class="split-layout">
         <div class="text-content">
-          <h2 class="section-title" style="margin-bottom: 24px;">Приём №1. Фрейминг</h2>
+          <h2 class="section-title" style="margin-bottom: 16px;">Приём №1. Фрейминг</h2>
           <p>Мошенники почти никогда не лгут целиком. Они используют фрейминг — подают информацию так, чтобы вы увидели только выгодную часть. Гниль остаётся в реальности, но вне вашего поля зрения.</p>
-          
           <div class="example-box">
             <p class="example-label">❌ Вместо:</p>
             <p>«Переведите нам комиссию за несуществующий приз».</p>
-            <p class="example-label" style="margin-top: 16px;">✅ Говорят:</p>
+            <p class="example-label" style="margin-top: 12px;">✅ Говорят:</p>
             <p>«Поздравляем! Вы выиграли iPhone. Для получения нужно оплатить небольшую госпошлину».</p>
-            <p class="example-note">(Фрейм: вы не тратите, вы получаете).</p>
           </div>
-
           <div class="protection-card">
             <h3 class="protection-title">Как защититься</h3>
-            <p>Переформулируйте предложение своими словами, убрав все красивые термины: <strong>«То есть я должен заплатить свои деньги, чтобы получить выигрыш?»</strong> Звучит абсурдно? Именно.</p>
+            <p>Переформулируйте предложение своими словами: <strong>«То есть я должен заплатить свои деньги, чтобы получить выигрыш?»</strong> Звучит абсурдно? Именно.</p>
           </div>
         </div>
-        <div class="split-image">
-          <div class="image-wrap">
-            <img src="apple.jpeg" alt="Гнилое яблоко в зеркале">
-          </div>
-        </div>
+        <div class="split-image"><div class="image-wrap"><img src="apple.jpeg" alt="Гнилое яблоко"></div></div>
       </div>
     </div>
   </section>
 
-  <!-- БЛОК 4: ПРИЁМ 2 - ДЕДЛАЙН -->
+  <!-- ПРИЕМ 2 -->
   <section class="section">
     <div class="container">
       <div class="split-layout">
-        <div class="split-image">
-          <div class="image-wrap">
-            <img src="time.png" alt="Искусственный дедлайн">
-          </div>
-        </div>
+        <div class="split-image"><div class="image-wrap"><img src="time.png" alt="Дедлайн"></div></div>
         <div class="text-content">
-          <h2 class="section-title" style="margin-bottom: 24px;">Приём №2. Искусственный дедлайн</h2>
-          <p class="lead" style="margin-bottom: 16px;">«Решайте сейчас, или потеряете всё».</p>
-          
+          <h2 class="section-title" style="margin-bottom: 16px;">Приём №2. Искусственный дедлайн</h2>
+          <p class="lead" style="margin-bottom: 12px;">«Решайте сейчас, или потеряете всё».</p>
           <p>Эволюционно мы реагировали на срочность как на угрозу. Ограничение времени отключает критическое мышление. Мозг переходит из режима «подумать» в режим «действовать».</p>
-          
           <div class="example-box">
             <p class="example-label">Как используют:</p>
             <ul class="custom-list">
@@ -721,132 +809,171 @@
               <li>«Предложение по инвестициям действует только сегодня»</li>
             </ul>
           </div>
-
           <div class="protection-card">
             <h3 class="protection-title">Как защититься</h3>
-            <p>Правило 24 часов. Любое решение о переводе денег, открытии счёта, инвестициях — только на следующий день. Положите трубку, перезвоните в банк по официальному номеру.</p>
-            <p>Кроме того, настоящие банки, госорганы и серьёзные компании никогда не торопят клиентов по телефону. У них есть процедуры, сроки, документы.</p>
+            <p>Правило 24 часов. Любое решение о переводе денег — только на следующий день. Перезвоните в банк по официальному номеру.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- БЛОК 5: ПРИЁМ 3 - ЭМОЦИОНАЛЬНЫЕ КАЧЕЛИ -->
+  <!-- ПРИЕМ 3 -->
   <section class="section">
     <div class="container">
       <div class="split-layout">
         <div class="text-content">
-          <h2 class="section-title" style="margin-bottom: 24px;">Приём №3. Эмоциональные качели</h2>
-          <p>Мошенники не просто пугают или просто обещают золото. Они чередуют страх и облегчение в одном разговоре.</p>
-          
+          <h2 class="section-title" style="margin-bottom: 16px;">Приём №3. Эмоциональные качели</h2>
+          <p>Мошенники не просто пугают или обещают золото. Они чередуют страх и облегчение в одном разговоре.</p>
           <div class="example-box">
             <p class="example-label">Как используют:</p>
-            <p>Вас пугают («Ваш счет взломали!»), затем успокаивают («Мы сейчас всё исправим, я вас переключу на безопасную линию»), затем снова пугают («Но если не подтвердить данные, деньги пропадут»). Этот маятник истощает психику и отключает критическое мышление.</p>
+            <p>Вас пугают («Ваш счет взломали!»), затем успокаивают («Я вас переключу на безопасную линию»), затем снова пугают («Если не подтвердить данные, деньги пропадут»). Этот маятник истощает психику.</p>
           </div>
-
           <div class="protection-card">
             <h3 class="protection-title">Как защититься</h3>
-            <p>Заметить эмоциональную качелю. Если во время звонка вас бросает в жар, а потом в холод, и вы чувствуете сильное облегчение от слов собеседника — это красный флаг. Скажите: «Я подумаю», положите трубку и перезвоните сами.</p>
+            <p>Заметить эмоциональную качелю. Если вас бросает в жар, а потом в холод — это красный флаг. Скажите: «Я подумаю» и перезвоните сами.</p>
           </div>
         </div>
-        <div class="split-image">
-          <div class="image-wrap">
-            <img src="kacheli.png" alt="Эмоциональные качели">
-          </div>
-        </div>
+        <div class="split-image"><div class="image-wrap"><img src="kacheli.png" alt="Качели"></div></div>
       </div>
     </div>
   </section>
 
-  <!-- БЛОК 6: ПРИЁМ 4 - ЭФФЕКТ ОРЕОЛА -->
+  <!-- ПРИЕМ 4 -->
   <section class="section">
     <div class="container">
       <div class="split-layout">
-        <div class="split-image">
-          <div class="image-wrap">
-            <img src="bernof.png" alt="Бернард Мэдофф">
-          </div>
-        </div>
+        <div class="split-image"><div class="image-wrap"><img src="bernof.png" alt="Бернард Мэдофф"></div></div>
         <div class="text-content">
-          <h2 class="section-title" style="margin-bottom: 24px;">Приём №4. Эффект ореола</h2>
-          <p class="lead" style="margin-bottom: 16px;">«Красивая упаковка = доверие».</p>
-          
-          <p>Мы привыкли думать о мошенниках как о тенях: анонимный звонок, фальшивый сайт, незнакомый «инвестор» из соцсетей. Но самый страшный мошенник — это тот, кому вы доверяете. Тот, с кем вы пьёте кофе, жмёте руку, видите по телевизору.</p>
-          <p><strong>История Бернарда Мэдоффа</strong> — лучшее тому доказательство.</p>
-
+          <h2 class="section-title" style="margin-bottom: 16px;">Приём №4. Эффект ореола</h2>
+          <p class="lead" style="margin-bottom: 12px;">«Красивая упаковка = доверие».</p>
+          <p>Мы привыкли думать о мошенниках как о тенях. Но самый страшный мошенник — это тот, кому вы доверяете. <strong>История Бернарда Мэдоффа</strong> — лучшее тому доказательство.</p>
           <div class="example-box">
             <p class="example-label">Как используют мошенники:</p>
             <ul class="custom-list">
-              <li>Дорогой костюм, часы, машина = «успешный человек, ему можно доверять»</li>
-              <li>Офис в центре Москвы, брендированные стены = «серьёзная компания»</li>
-              <li>Упоминание лицензии ЦБ (часто поддельной или отозванной) = «регулируемая организация»</li>
+              <li>Дорогой костюм, машина = «успешный человек»</li>
+              <li>Офис в центре Москвы = «серьёзная компания»</li>
+              <li>Упоминание лицензии ЦБ = «регулируемая организация»</li>
             </ul>
           </div>
-
           <div class="protection-card">
             <h3 class="protection-title">Как защититься</h3>
-            <p>Проверяйте лицензию на сайте ЦБ РФ (cbr.ru). Разделяйте «упаковку» и «содержание». Задавайте вопрос: <strong>«Если бы у этой компании не было офиса и рекламы — я бы ей доверился?»</strong></p>
+            <p>Проверяйте лицензию на сайте ЦБ РФ (cbr.ru). Разделяйте «упаковку» и «содержание».</p>
           </div>
-
           <div class="story-block">
             <div>
               <h4>Что он делал</h4>
-              <p>Будучи экс-председателем биржи NASDAQ и уважаемым финансистом, Мэдофф десятилетиями управлял крупнейшей в истории финансовой пирамидой. Он не инвестировал деньги, а просто платил «доходность» старым клиентам за счет средств новых.</p>
+              <p>Будучи экс-председателем биржи NASDAQ, Мэдофф десятилетиями управлял крупнейшей финансовой пирамидой. Он платил «доходность» старым клиентам за счет средств новых.</p>
             </div>
             <div>
               <h4>К чему это привело</h4>
-              <p>В 2008 году, во время кризиса, клиенты массово потребовали вернуть деньги, и схема рухнула. Итог: 150 лет тюрьмы (максимальный срок в истории США), самоубийство сына, разрушенные жизни тысяч вкладчиков и потерянные пенсионные накопления.</p>
-            </div>
-            <div>
-              <h4>Главный урок</h4>
-              <p>Мэдофф обманул не наивных людей, а лучших финансистов мира. Потому что он был «своим». Мошенник — это не всегда анонимный звонок из подвала. Иногда это уважаемый человек в дорогом костюме, с которым вы пьете кофе.</p>
+              <p>В 2008 году схема рухнула. Итог: 150 лет тюрьмы, разрушенные жизни тысяч вкладчиков. <a href="#source2" class="footnote-ref" style="color:var(--accent-light);">**</a></p>
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </section>
-
-  <!-- БЛОК 7: КРАСИВЫЙ ИТОГ -->
+  <!-- ИТОГ (ЧЕК) -->
   <section class="outro-section">
-    <div class="container">
-      <div class="outro-card">
-        <h2>Итог</h2>
-        
-        <p class="outro-lead">Мошенники не взламывают ваши счета — они взламывают ваше мышление.</p>
-        
-        <p>Фрейминг, дедлайны, эмоциональные качели и красивые обертки — всё это работает только до тех пор, пока вы не знаете, как они устроены.</p>
-        
-        <p>Главное правило защиты простое: <strong>не поддавайтесь эмоциям в момент принятия финансовых решений.</strong> Если вас торопят, пугают или ослепляют роскошью — это повод остановиться, сделать паузу и посмотреть мимо зеркала.</p>
-        
-        <div class="outro-highlight">
-          Помните про гнилое яблоко. Прежде чем поверить в идеальную картинку, задайте себе вопрос: «А что находится по ту сторону стекла?»
+    <div class="receipt-card">
+      <div class="receipt-header">
+        <svg class="receipt-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+        <h2 class="receipt-title">Финансовая безопасность</h2>
+        <p class="receipt-status">Статус: Защищено</p>
+      </div>
+      <div class="receipt-body">
+        <p class="receipt-intro">Вы разобрали главные приемы манипуляции. Теперь вы знаете, как они работают. Главное правило защиты простое:</p>
+        <ul class="receipt-list">
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <div><strong>Пауза 24 часа</strong><p>Не поддавайтесь эмоциям в момент принятия финансовых решений.</p></div>
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <div><strong>Двойная проверка</strong><p>Если торопят, пугают или ослепляют роскошью — перезвоните сами по официальному номеру.</p></div>
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <div><strong>Осознанность</strong><p>Прежде чем поверить в идеальную картинку, посмотрите мимо зеркала.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="receipt-footer">
+        <div class="receipt-total">
+          <span>Сохранено:</span>
+          <strong>Ваши деньги</strong>
         </div>
+        <p class="receipt-note">Помните про гнилое яблоко. Настоящая выгода никогда не требует срочности.</p>
       </div>
     </div>
   </section>
 
-  <!-- НОВЫЙ ЧЕРНЫЙ БЛОК: СПАСИБО И КОНТАКТЫ -->
+  <!-- ИСТОЧНИКИ -->
+  <section class="sources-section" id="sources">
+    <div class="container">
+      <h2 class="section-title">Источники информации</h2>
+      <ul class="sources-list">
+        <li id="source1"><a href="https://www.cbr.ru/press/event/?id=28300" target="_blank">* Официальный сайт Банка России. Статистика и аналитика по кибермошенничеству.</a></li>
+        <li id="source2"><a href="https://www.rbc.ru/quote/news/article/6079c85b9a794768a1be289a" target="_blank">** РБК. История Бернарда Мэдоффа и крупнейшей финансовой пирамиды.</a></li>
+        <li id="source3"><a href="https://vitvet.com/articles/moshennichestvo/sudebnaya-praktika/statistika/" target="_blank">*** Судебная практика и статистика раскрываемости мошенничества.</a></li>
+        <li id="source4"><a href="https://www.banki.ru/news/daytheme/?id=11020662" target="_blank">**** Банки.ру. Какие схемы мошенничества будут распространены в 2026 году и как не потерять свои деньги.</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
   <footer class="footer-section" id="contacts">
     <div class="container">
       <h2 class="footer-thanks">Спасибо<br>за внимание!</h2>
       <span class="footer-smile">😊</span>
-      
       <div class="footer-contacts">
         <a href="mailto:petuhovamgn@gmail.com" class="footer-email">petuhovamgn@gmail.com</a>
-        
         <div class="contact-row">
           <span class="contact-label">Телеграм</span>
           <a href="https://t.me/sv_pt" class="contact-value" target="_blank">@sv_pt</a>
         </div>
-        
         <div class="contact-row">
           <span class="contact-label">Телефон</span>
           <a href="tel:+79518186295" class="contact-value">+7 951 818-62-95</a>
         </div>
-        
         <div class="contact-row">
           <span class="contact-label">ВК</span>
-          <a href="https://vk.ru/svet_pt" class="contact-value" target="_blank">vk.ru/svet_pt</a
+          <a href="https://vk.ru/svet_pt" class="contact-value" target="_blank">vk.ru/svet_pt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  const eyes = document.querySelectorAll('.eye');
+
+  document.addEventListener('mousemove', (e) => {
+    eyes.forEach((eye) => {
+      const pupil = eye.querySelector('.pupil');
+      const rect = eye.getBoundingClientRect();
+      const eyeX = rect.left + rect.width / 2;
+      const eyeY = rect.top + rect.height / 2;
+      const angle = Math.atan2(e.clientY - eyeY, e.clientX - eyeX);
+      const maxOffset = (rect.width - 50) / 2 - 5;
+      const x = Math.cos(angle) * maxOffset;
+      const y = Math.sin(angle) * maxOffset;
+      pupil.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+    });
+  });
+
+  function blink() {
+    eyes.forEach((eye) => {
+      eye.classList.add('blink');
+      setTimeout(() => eye.classList.remove('blink'), 150);
+    });
+    setTimeout(blink, 2000 + Math.random() * 4000);
+  }
+  blink();
+</script>
+
+</body>
+</html>
