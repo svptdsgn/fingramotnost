@@ -7,6 +7,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113671287', 'ym');
+
+    ym(113671287, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113671287" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 <style>
   :root {
     --bg: #000000;
@@ -35,7 +50,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ШАПКА */
+  /* ---------- ШАПКА ---------- */
   .header {
     position: sticky;
     top: 0;
@@ -118,7 +133,7 @@
     outline: none;
   }
 
-  /* ТИТУЛЬНЫЙ ЛИСТ */
+  /* ---------- ТИТУЛЬНЫЙ ЛИСТ ---------- */
   .title-page {
     min-height: 90vh;
     display: flex;
@@ -130,7 +145,9 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .title-page__content { max-width: 700px; }
+  .title-page__content {
+    max-width: 700px;
+  }
 
   .title-page h1 {
     font-size: 48px;
@@ -157,7 +174,7 @@
     margin-bottom: 4px;
   }
 
-  /* ГЛАЗА */
+  /* ---------- БЛОК С ГЛАЗАМИ ---------- */
   .stage {
     min-height: 30vh; 
     display: flex;
@@ -206,7 +223,7 @@
   }
   .eyes-caption span { color: var(--accent-light); }
 
-  /* СЕКЦИИ */
+  /* ---------- ОБЩИЕ СТИЛИ ДЛЯ СЕКЦИЙ ---------- */
   .section {
     padding: 40px 20px;
     page-break-inside: avoid;
@@ -239,6 +256,7 @@
     color: var(--text-gray);
   }
 
+  /* Картинки */
   .image-wrap {
     width: 100%;
     border-radius: var(--radius-md);
@@ -255,6 +273,7 @@
     object-fit: cover;
   }
 
+  /* ---------- БЛОК СТАТИСТИКИ ---------- */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -265,7 +284,11 @@
     page-break-inside: avoid;
   }
 
-  .stat-item { display: flex; flex-direction: column; gap: 12px; }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
   .stat-number {
     font-size: 64px;
@@ -278,12 +301,24 @@
     gap: 12px;
   }
 
-  .stat-unit { font-size: 20px; font-weight: 600; color: var(--text-muted); }
+  .stat-unit {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
 
-  .stat-desc { font-size: 14px; line-height: 1.4; color: var(--text-muted); }
+  .stat-desc {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
 
-  .stat-desc a { color: var(--text-muted); text-decoration: none; }
+  .stat-desc a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
 
+  /* ---------- ТЕКСТОВЫЙ БЛОК ---------- */
   .text-content {
     max-width: 760px;
     display: flex;
@@ -306,6 +341,7 @@
     font-weight: 500;
   }
 
+  /* Сноски */
   .footnote-ref {
     font-size: 12px;
     vertical-align: super;
@@ -314,6 +350,7 @@
     font-weight: 700;
   }
 
+  /* ---------- СЕТКА С КАРТИНКОЙ ---------- */
   .split-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -322,10 +359,16 @@
     page-break-inside: avoid;
   }
 
-  .split-image { position: sticky; top: 100px; }
+  .split-image {
+    position: sticky;
+    top: 100px;
+  }
 
-  .split-image .image-wrap { margin-bottom: 0; }
+  .split-image .image-wrap {
+    margin-bottom: 0;
+  }
 
+  /* Плашка с примерами */
   .example-box {
     background: #111111;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -336,7 +379,10 @@
     page-break-inside: avoid;
   }
 
-  .example-box p { font-size: 15px; color: rgba(255, 255, 255, 0.9); }
+  .example-box p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+  }
 
   .example-label {
     font-size: 12px;
@@ -378,6 +424,7 @@
     font-size: 18px;
   }
 
+  /* Карточка "Как защититься" */
   .protection-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -408,6 +455,7 @@
   
   .protection-card p:last-child { margin-bottom: 0; }
 
+  /* ---------- ИСТОРИЯ (МИНИ-БЛОК) ---------- */
   .story-block {
     display: flex;
     flex-direction: column;
@@ -431,6 +479,9 @@
     color: rgba(255, 255, 255, 0.8);
   }
 
+  /* =========================================
+     БЛОК ИТОГА (ЧЕК / ВЫПИСКА)
+     ========================================= */
   .outro-section {
     padding: 40px 20px;
     background: #000;
@@ -478,7 +529,9 @@
     letter-spacing: 0.1em;
   }
 
-  .receipt-body { padding: 20px 24px; }
+  .receipt-body {
+    padding: 20px 24px;
+  }
 
   .receipt-intro {
     font-size: 15px;
@@ -552,6 +605,7 @@
     font-style: italic;
   }
 
+  /* ---------- ИСТОЧНИКИ ---------- */
   .sources-section {
     padding: 40px 20px;
     background: #050505;
@@ -576,6 +630,7 @@
     word-break: break-all;
   }
 
+  /* ---------- ФИНАЛЬНЫЙ БЛОК (СПАСИБО И КОНТАКТЫ) ---------- */
   .footer-section {
     background-color: #000000;
     padding: 40px 20px;
@@ -629,39 +684,56 @@
   .contact-label { color: var(--text-muted); }
   .contact-value { color: var(--text); text-decoration: none; font-weight: 500; }
 
+  /* ---------- АДАПТИВ ---------- */
   @media (max-width: 810px) {
     .header__inner { padding: 0 16px; }
     .logo { font-size: 14px; gap: 8px; }
     .logo__icon { width: 20px; height: 24px; }
+    
     .nav { position: static; transform: none; gap: 4px; }
     .nav__link { padding: 8px 12px; font-size: 13px; }
+    
     .title-page { min-height: auto; padding: 40px 16px; }
     .title-page h1 { font-size: 28px; margin-bottom: 24px; }
     .title-meta { font-size: 16px; margin-bottom: 24px; }
+    
     .stage { min-height: 20vh; padding: 24px 16px; gap: 16px; }
     .eyes { gap: 16px; }
     .eye { width: 80px; height: 80px; }
     .pupil { width: 30px; height: 30px; }
     .eyes-caption { font-size: 14px; }
+
     .section { padding: 24px 16px; }
     .section-title { font-size: 24px; margin-bottom: 12px; }
     .intro-text { margin-bottom: 16px; }
     .intro-text p { font-size: 14px; }
+    
     .image-wrap { margin-bottom: 16px; border-radius: 8px; }
-    .stats-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 24px; }
+    
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
     .stat-number { font-size: 48px; }
     .stat-unit { font-size: 16px; }
+    
     .text-content p { font-size: 15px; }
     .text-content .lead { font-size: 18px; }
+    
     .split-layout { grid-template-columns: 1fr; gap: 16px; }
     .split-image { position: static; order: -1; }
+
     .protection-card, .example-box { padding: 12px; }
     .story-block { padding-left: 12px; }
+
     .outro-section { padding: 24px 16px; }
     .receipt-header, .receipt-body, .receipt-footer { padding: 16px; }
     .receipt-title { font-size: 18px; }
     .receipt-total { flex-direction: column; align-items: flex-start; gap: 4px; }
+
     .sources-section { padding: 24px 16px; }
+    
     .footer-section { padding: 24px 16px; }
     .footer-thanks { font-size: 32px; margin-bottom: 8px; }
     .footer-smile { font-size: 32px; margin-bottom: 24px; }
@@ -669,13 +741,26 @@
     .contact-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 8px 0; }
   }
 
+  /* ---------- ПЕЧАТЬ В PDF ---------- */
   @media print {
     @page { margin: 15mm; }
-    body { background: #000 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      background: #000 !important;
+      color: #fff !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
     .header, .nav, .stage { display: none; }
     .title-page { min-height: 100vh; page-break-after: always; border: none; }
-    .section, .outro-section, .sources-section, .footer-section { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .split-layout { display: flex; flex-direction: row; gap: 15px; }
+    .section, .outro-section, .sources-section, .footer-section { 
+      padding: 15px 0; 
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .split-layout { 
+      display: flex; 
+      flex-direction: row; 
+      gap: 15px; 
+    }
     .split-image { position: static; width: 45%; }
     .split-image .image-wrap { margin-bottom: 0; }
     .text-content { width: 55%; }
@@ -686,6 +771,7 @@
 </head>
 <body>
 
+  <!-- ШАПКА -->
   <header class="header">
     <div class="header__inner">
       <a href="#top" class="logo">
@@ -704,6 +790,7 @@
 
   <div id="top"></div>
 
+  <!-- ТИТУЛЬНЫЙ ЛИСТ -->
   <section class="title-page">
     <div class="title-page__content">
       <h1>Психология мошенничества: механизмы манипуляции и поведенческие уязвимости</h1>
@@ -714,6 +801,7 @@
     </div>
   </section>
 
+  <!-- ВВЕДЕНИЕ -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Введение</h2>
@@ -726,6 +814,7 @@
     </div>
   </section>
 
+  <!-- ГЛАЗА -->
   <main class="stage">
     <div class="eyes" id="eyes">
       <div class="eye"><div class="pupil"></div></div>
@@ -734,6 +823,7 @@
     <p class="eyes-caption">Смотри в оба! <span>Они наблюдают за тобой...</span></p>
   </main>
 
+  <!-- СТАТИСТИКА -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Почему люди попадаются на уловки мошенников?</h2>
@@ -760,6 +850,926 @@
       <div class="image-wrap"><img src="hero2.jpeg" alt="Психология мошенничества"></div>
     </div>
   </section>
+
+  <!-- ПРИЕМЫ ЗАГОЛОВОК -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Психологические приёмы мошенников</h2>
+      <div class="text-content">
+        <p class="lead">Мошенники — мастера создавать отражения.</p>
+        <p>Они знают: если показать вам то, чего вы хотите увидеть (спокойствие, выгоду, любовь), <strong>вы сами закроете глаза на реальность</strong>. И делают они это через конкретные приёмы. Разберём их по одному<a href="#source4" class="footnote-ref">****</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРИЕМ 1 -->
+  <section class="section">
+    <div class="container">
+      <div class="split-layout">
+        <div class="text-content">
+          <h2 class="section-title" style="margin-bottom: 16px;">Приём №1. Фрейминг</h2>
+          <p>Мошенники почти никогда не лгут целиком. Они используют фрейминг — подают информацию так, чтобы вы увидели только выгодную часть. Гниль остаётся в реальности, но вне вашего поля зрения.</p>
+          <div class="example-box">
+            <p class="example-label">❌ Вместо:</p>
+            <p>«Переведите нам комиссию за несуществующий приз».</p>
+            <p class="example-label" style="margin-top: 12px;">✅ Говорят:</p>
+            <p>«Поздравляем! Вы выиграли iPhone. Для получения нужно оплатить небольшую госпошлину».</p>
+          </div>
+          <div class="protection-card">
+            <h3 class="protection-title">Как защититься</h3>
+            <p>Переформулируйте предложение своими словами: <strong>«То есть я должен заплатить свои деньги, чтобы получить выигрыш?»</strong> Звучит абсурдно? Именно.</p>
+          </div>
+        </div>
+        <div class="split-image"><div class="image-wrap"><img src="apple.jpeg" alt="Гнилое яблоко"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРИЕМ 2 -->
+  <section class="section">
+    <div class="container">
+      <div class="split-layout">
+        <div class="split-image"><div class="image-wrap"><img src="time.png" alt="Дедлайн"></div></div>
+        <div class="text-content">
+          <h2 class="section-title" style="margin-bottom: 16px;">Приём №2. Искусственный дедлайн</h2>
+          <p class="lead" style="margin-bottom: 12px;">«Решайте сейчас, или потеряете всё».</p>
+          <p>Эволюционно мы реагировали на срочность как на угрозу. Ограничение времени отключает критическое мышление. Мозг переходит из режима «подумать» в режим «действовать».</p>
+          <div class="example-box">
+            <p class="example-label">Как используют:</p>
+            <ul class="custom-list">
+              <li>«Через 10 минут ваш счёт заблокируют»</li>
+              <li>«Предложение по инвестициям действует только сегодня»</li>
+            </ul>
+          </div>
+          <div class="protection-card">
+            <h3 class="protection-title">Как защититься</h3>
+            <p>Правило 24 часов. Любое решение о переводе денег — только на следующий день. Перезвоните в банк по официальному номеру.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРИЕМ 3 -->
+  <section class="section">
+    <div class="container">
+      <div class="split-layout">
+        <div class="text-content">
+          <h2 class="section-title" style="margin-bottom: 16px;">Приём №3. Эмоциональные качели</h2>
+          <p>Мошенники не просто пугают или обещают золото. Они чередуют страх и облег<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Светлана Петухова</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113671287', 'ym');
+
+    ym(113671287, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113671287" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<style>
+  :root {
+    --bg: #000000;
+    --text: #FFFFFF;
+    --accent: #3333FF;
+    --accent-light: #8080ff;
+    --hover-bg: #2A2A2A;
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --text-gray: rgba(255, 255, 255, 0.5);
+    --header-h: 74px;
+    --container: 960px;
+    --radius-pill: 100px;
+    --radius-md: 16px;
+    --success: #34C759;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- ШАПКА ---------- */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-h);
+    background: var(--bg);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+  }
+
+  .header__inner {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.22s ease;
+  }
+  .logo:hover { opacity: 0.8; }
+
+  .logo__icon {
+    width: 24px;
+    height: 28px;
+    background: var(--text);
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+  }
+  .logo__icon svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: var(--bg);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav__link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .nav__link:hover,
+  .nav__link:focus-visible {
+    background-color: var(--hover-bg);
+    color: var(--text);
+    outline: none;
+  }
+
+  /* ---------- ТИТУЛЬНЫЙ ЛИСТ ---------- */
+  .title-page {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .title-page__content {
+    max-width: 700px;
+  }
+
+  .title-page h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+  }
+
+  .title-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+  }
+
+  .title-meta span {
+    color: var(--text-muted);
+    font-size: 16px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ---------- БЛОК С ГЛАЗАМИ ---------- */
+  .stage {
+    min-height: 30vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 20px;
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .eyes { display: flex; gap: 40px; }
+
+  .eye {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    border: 4px solid #222;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.1s;
+  }
+  .eye.blink { transform: scaleY(0.1); }
+
+  .pupil {
+    width: 50px;
+    height: 50px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s linear;
+    will-change: transform;
+  }
+
+  .eyes-caption {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+  }
+  .eyes-caption span { color: var(--accent-light); }
+
+  /* ---------- ОБЩИЕ СТИЛИ ДЛЯ СЕКЦИЙ ---------- */
+  .section {
+    padding: 40px 20px;
+    page-break-inside: avoid;
+  }
+  
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+
+  .intro-text {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .intro-text p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-gray);
+  }
+
+  /* Картинки */
+  .image-wrap {
+    width: 100%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 24px;
+    background: #1a1a1a;
+    page-break-inside: avoid;
+  }
+
+  .image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* ---------- БЛОК СТАТИСТИКИ ---------- */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 32px;
+    margin-bottom: 40px;
+    page-break-inside: avoid;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat-number {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--text);
+    letter-spacing: -0.04em;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .stat-unit {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .stat-desc {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+
+  .stat-desc a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  /* ---------- ТЕКСТОВЫЙ БЛОК ---------- */
+  .text-content {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .text-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .text-content strong { color: var(--text); font-weight: 600; }
+
+  .text-content .lead {
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Сноски */
+  .footnote-ref {
+    font-size: 12px;
+    vertical-align: super;
+    color: var(--accent-light);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  /* ---------- СЕТКА С КАРТИНКОЙ ---------- */
+  .split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+    page-break-inside: avoid;
+  }
+
+  .split-image {
+    position: sticky;
+    top: 100px;
+  }
+
+  .split-image .image-wrap {
+    margin-bottom: 0;
+  }
+
+  /* Плашка с примерами */
+  .example-box {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+
+  .example-box p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .example-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .example-note {
+    font-size: 13px !important;
+    color: var(--text-gray) !important;
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  .custom-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .custom-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .custom-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--text);
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  /* Карточка "Как защититься" */
+  .protection-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-top: 12px;
+    page-break-inside: avoid;
+  }
+
+  .protection-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .protection-card p {
+    font-size: 15px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+  }
+  
+  .protection-card p:last-child { margin-bottom: 0; }
+
+  /* ---------- ИСТОРИЯ (МИНИ-БЛОК) ---------- */
+  .story-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    padding-left: 16px;
+    margin-top: 12px;
+    page-break-inside: avoid;
+  }
+
+  .story-block h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .story-block p {
+    font-size: 15px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* =========================================
+     БЛОК ИТОГА (ЧЕК / ВЫПИСКА)
+     ========================================= */
+  .outro-section {
+    padding: 40px 20px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    page-break-inside: avoid;
+  }
+
+  .receipt-card {
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 560px;
+    position: relative;
+  }
+
+  .receipt-header {
+    padding: 24px 24px 16px;
+    text-align: center;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  }
+
+  .receipt-icon-svg {
+    width: 36px;
+    height: 36px;
+    color: var(--success);
+    margin: 0 auto 12px;
+    display: block;
+  }
+
+  .receipt-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .receipt-status {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--success);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .receipt-body {
+    padding: 20px 24px;
+  }
+
+  .receipt-intro {
+    font-size: 15px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 16px;
+  }
+
+  .receipt-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .receipt-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .receipt-list .check-icon {
+    color: var(--success);
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+  }
+
+  .receipt-list strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .receipt-list p {
+    font-size: 14px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .receipt-footer {
+    padding: 16px 24px 24px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .receipt-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .receipt-total strong {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--success);
+  }
+
+  .receipt-note {
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ---------- ИСТОЧНИКИ ---------- */
+  .sources-section {
+    padding: 40px 20px;
+    background: #050505;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    page-break-inside: avoid;
+  }
+  .sources-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .sources-list li {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+  .sources-list a {
+    color: var(--accent-light);
+    text-decoration: none;
+    word-break: break-all;
+  }
+
+  /* ---------- ФИНАЛЬНЫЙ БЛОК (СПАСИБО И КОНТАКТЫ) ---------- */
+  .footer-section {
+    background-color: #000000;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    page-break-inside: avoid;
+  }
+
+  .footer-thanks {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  .footer-smile {
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .footer-contacts {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .footer-email {
+    display: block;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    margin-bottom: 16px;
+  }
+
+  .contact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    font-size: 14px;
+  }
+
+  .contact-label { color: var(--text-muted); }
+  .contact-value { color: var(--text); text-decoration: none; font-weight: 500; }
+
+  /* ---------- АДАПТИВ ---------- */
+  @media (max-width: 810px) {
+    .header__inner { padding: 0 16px; }
+    .logo { font-size: 14px; gap: 8px; }
+    .logo__icon { width: 20px; height: 24px; }
+    
+    .nav { position: static; transform: none; gap: 4px; }
+    .nav__link { padding: 8px 12px; font-size: 13px; }
+    
+    .title-page { min-height: auto; padding: 40px 16px; }
+    .title-page h1 { font-size: 28px; margin-bottom: 24px; }
+    .title-meta { font-size: 16px; margin-bottom: 24px; }
+    
+    .stage { min-height: 20vh; padding: 24px 16px; gap: 16px; }
+    .eyes { gap: 16px; }
+    .eye { width: 80px; height: 80px; }
+    .pupil { width: 30px; height: 30px; }
+    .eyes-caption { font-size: 14px; }
+
+    .section { padding: 24px 16px; }
+    .section-title { font-size: 24px; margin-bottom: 12px; }
+    .intro-text { margin-bottom: 16px; }
+    .intro-text p { font-size: 14px; }
+    
+    .image-wrap { margin-bottom: 16px; border-radius: 8px; }
+    
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .stat-number { font-size: 48px; }
+    .stat-unit { font-size: 16px; }
+    
+    .text-content p { font-size: 15px; }
+    .text-content .lead { font-size: 18px; }
+    
+    .split-layout { grid-template-columns: 1fr; gap: 16px; }
+    .split-image { position: static; order: -1; }
+
+    .protection-card, .example-box { padding: 12px; }
+    .story-block { padding-left: 12px; }
+
+    .outro-section { padding: 24px 16px; }
+    .receipt-header, .receipt-body, .receipt-footer { padding: 16px; }
+    .receipt-title { font-size: 18px; }
+    .receipt-total { flex-direction: column; align-items: flex-start; gap: 4px; }
+
+    .sources-section { padding: 24px 16px; }
+    
+    .footer-section { padding: 24px 16px; }
+    .footer-thanks { font-size: 32px; margin-bottom: 8px; }
+    .footer-smile { font-size: 32px; margin-bottom: 24px; }
+    .footer-email { font-size: 20px; padding-bottom: 12px; margin-bottom: 12px; word-break: break-all; }
+    .contact-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 8px 0; }
+  }
+
+  /* ---------- ПЕЧАТЬ В PDF ---------- */
+  @media print {
+    @page { margin: 15mm; }
+    body {
+      background: #000 !important;
+      color: #fff !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .header, .nav, .stage { display: none; }
+    .title-page { min-height: 100vh; page-break-after: always; border: none; }
+    .section, .outro-section, .sources-section, .footer-section { 
+      padding: 15px 0; 
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .split-layout { 
+      display: flex; 
+      flex-direction: row; 
+      gap: 15px; 
+    }
+    .split-image { position: static; width: 45%; }
+    .split-image .image-wrap { margin-bottom: 0; }
+    .text-content { width: 55%; }
+    .image-wrap img { max-height: 250px; object-fit: contain; }
+    .stats-grid { display: flex; justify-content: space-between; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="#top" class="logo">
+        <div class="logo__icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        Светлана Петухова
+      </a>
+      <nav class="nav">
+        <a href="#top" class="nav__link">В начало</a>
+        <a href="#sources" class="nav__link">Источники</a>
+        <a href="#contacts" class="nav__link">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="top"></div>
+
+  <!-- ТИТУЛЬНЫЙ ЛИСТ -->
+  <section class="title-page">
+    <div class="title-page__content">
+      <h1>Психология мошенничества: механизмы манипуляции и поведенческие уязвимости</h1>
+      <div class="title-meta">
+        <div><span>ФИО участника:</span>Петухова Светлана Юрьевна</div>
+        <div><span>Место работы/учебы:</span>Самозанятая</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ВВЕДЕНИЕ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Введение</h2>
+      <div class="text-content">
+        <p class="lead">Тема психологии финансового мошенничества выбрана не случайно.</p>
+        <p>Ежегодно миллионы людей теряют сбережения, и жертвами становятся отнюдь не только доверчивые пенсионеры. В зоне риска — люди с высшим образованием, предприниматели и специалисты, привыкшие анализировать информацию.</p>
+        <p>Актуальность темы обусловлена тем, что современные мошенники перестали быть «анонимами из подвала». Они превратились в тонких психологов, использующих научно обоснованные методы социальной инженерии.</p>
+        <p><strong>Цель лонгрида</strong> — разобрать ключевые психологические приемы, которые используют финансовые мошенники, и показать на реальных примерах, как работают эти уязвимости.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ГЛАЗА -->
+  <main class="stage">
+    <div class="eyes" id="eyes">
+      <div class="eye"><div class="pupil"></div></div>
+      <div class="eye"><div class="pupil"></div></div>
+    </div>
+    <p class="eyes-caption">Смотри в оба! <span>Они наблюдают за тобой...</span></p>
+  </main>
+
+  <!-- СТАТИСТИКА -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Почему люди попадаются на уловки мошенников?</h2>
+      <div class="intro-text">
+        <p>Это не истории про «наивных бабушек у подъезда». Жертвами становятся врачи, люди с высшим образованием и хорошими доходами.</p>
+        <p>Почему? Потому что мошенники играют не на интеллекте — они играют на психологии. За каждым решением стоит отработанный прием — иногда один, иногда комбинация.</p>
+        <p>Мошенники используют одни и те же психологические механизмы. Они изучены, описаны и работают безотказно, если вы о них не знаете.</p>
+      </div>
+      <div class="image-wrap"><img src="hero.jpeg" alt="Люди работают за ноутбуками"></div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">67%</div>
+          <p class="stat-desc">по данным опроса ВЦИОМ и статистике Банка России столько россиян хотя бы раз сталкивались с попыткой телефонного мошенничества<a href="#source1" class="footnote-ref">*</a>.</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12–13%</div>
+          <p class="stat-desc">процент раскрываемости таких преступлений<a href="#source3" class="footnote-ref">***</a>.</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">29,3 <span class="stat-unit">млрд ₽</span></div>
+          <p class="stat-desc">объем украденных средств по итогам 2025 года.</p>
+        </div>
+      </div>
+      <div class="image-wrap"><img src="hero2.jpeg" alt="Психология мошенничества"></div>
+    </div>
+  </section>
+
+  <!-- ПРИЕМЫ ЗАГОЛОВОК -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Психологические приёмы мошенников</h2>
@@ -874,6 +1884,7 @@
       </div>
     </div>
   </section>
+
   <!-- ИТОГ (ЧЕК) -->
   <section class="outro-section">
     <div class="receipt-card">
